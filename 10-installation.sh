@@ -10,3 +10,4 @@ echo "you are super user"
 fi
 
 dnf install mysql -y
+echo "please proceeding?.."
