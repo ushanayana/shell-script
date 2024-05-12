@@ -2,12 +2,8 @@
 
 USERID=$(id -u)
 VALIDATE(){
-    if [ $1 -ne 0 ]
-    then
-    echo "$2 failure...."
-    else
-    echo "sucess....."
-    fi
+    echo "exit status: $1"
+    echo "what r u doing: $2"
 }
 
 if [ $USERID -ne 0 ]
