@@ -9,4 +9,9 @@ else
 echo "you r super user"
 fi
 
-echo "all packages:$@"
+for i in $@
+do 
+
+echo "all packages:$i"
+
+done
