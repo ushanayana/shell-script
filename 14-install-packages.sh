@@ -21,5 +21,10 @@ do
 
 echo "package to install:$i"
 dnf list installed $i &>>$LOGFILE
-
+if [ $? -eq 0]
+then 
+echo "$i package is installed"
+else
+echo "$i package is not installed...need to install"
+fi
 done
