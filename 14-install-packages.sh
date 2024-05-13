@@ -6,7 +6,18 @@ SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOGFILE=/tmp/$SCRIPT_NAME-$TIMESTAMP.log
 R="\e[31m"
 G="\e[32m"
+Y="\e[33m"
 N="\e[0m"
+
+VALIDATE(){
+    if [ $1 -ne 0 ]
+    then 
+    echo -e "$2...$R FAILURE $N"
+    exit 1
+    else 
+    echo -e "$2....$G SUCCESS $N"
+    fi
+}
 
 if [ $USERID -ne 0 ]
 then
@@ -23,8 +34,9 @@ echo "package to install:$i"
 dnf list installed $i &>>$LOGFILE
 if [ $? -eq 0 ]
 then 
-echo "$i package is installed"
+echo "$i package is installed...$Y SKIPPING $N"
 else
-echo "$i package is not installed...need to install"
+dnf install $i -y &>>$LOGFILE
+VALIDATE $? "Instalation of $i"
 fi
 done
