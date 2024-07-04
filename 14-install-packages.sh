@@ -34,7 +34,7 @@ echo "package to install:$i"
 dnf list installed $i &>>$LOGFILE
 if [ $? -eq 0 ]
 then 
-echo "$i package is installed...$Y SKIPPING $N"
+echo -e "$i package is installed...$Y SKIPPING $N"
 else
 dnf install $i -y &>>$LOGFILE
 VALIDATE $? "Instalation of $i"
