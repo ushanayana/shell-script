@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "hello,this is usha,iam learning devops";
+echo "hello,i am learning devops";
